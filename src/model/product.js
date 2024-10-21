@@ -45,5 +45,5 @@ exports.getProducts = async (page = 1, limit = 15) => {
 exports.getTotalProductsCount = async () => {
     const query = `SELECT COUNT(*) FROM products`
     const result = await db.one(query)
-    return parseInt(result)
+    return parseInt(result.count)
 }

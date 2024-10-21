@@ -1,8 +1,8 @@
-const productModel = require('src/model/product.js')
+const productModel = require('../model/product.js')
 
 exports.getProducts = async (page = 1, limit = 15) => {
-    const totalCount = await productModel.getTotalProductsCount
-    const products = await productModel.getProducts
+    const totalCount = await productModel.getTotalProductsCount()
+    const products = await productModel.getProducts(page, limit)
     if(totalCount <= 0) throw new Error("count is zero or less");
     return {
         totalCount,
