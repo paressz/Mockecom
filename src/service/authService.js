@@ -2,7 +2,7 @@ const userModel = require('../model/user')
 
 exports.login = async (userData) => {
     const {email, password} = userData
-    const user = await userModel.findUserByEmail(email)
+    const user = await userModel.login(email, password)
     if (!user) {
         throw new Error("Invalid credentials")
     }

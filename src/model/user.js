@@ -16,6 +16,11 @@ exports.findUserByEmail = async (email) => {
     return result
 }
 
+exports.login = async (email, password) => {
+    const result = await db.oneOrNone('SELECT * FROM users WHERE email = $1 AND password = $2 LIMIT 1', [email, password])
+    return result
+}
+
 exports.findUserById = async (id) => {
     const result = await db.one('SELECT * FROM users WHERE id = $1', [id])
     return result
