@@ -11,7 +11,7 @@ exports.createUser = async (userData) => {
 };
 
 exports.findUserByEmail = async (email) => {
-    const result = await db.oneOrNone('SELECT * FROM users WHERE email = $1', [email])
+    const result = await db.oneOrNone('SELECT * FROM users WHERE email = $1 LIMIT 1', [email])
     if(result) console.log(result)
     return result
 }
